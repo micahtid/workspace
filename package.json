@@ -7,9 +7,10 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "lint": "turbo run lint",
-    "dev:portfolio": "pnpm --filter portfolio dev",
-    "dev:hub": "pnpm --filter personal-hub dev",
-    "dev:notes": "pnpm --filter leetcode-notes dev"
+    "dev:site": "pnpm --filter site dev",
+    "dev:hub": "pnpm --filter hub dev",
+    "dev:notes": "pnpm --filter notes dev",
+    "dev:showcase": "pnpm --filter showcase dev"
   },
   "devDependencies": {
     "turbo": "^2.3.3",

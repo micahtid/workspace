@@ -1,12 +1,12 @@
 {
-  "name": "leetcode-notes",
+  "name": "hub",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "dev:all": "npm-run-all --parallel dev convex",
-    "convex": "node node_modules/convex/bin/main.js dev",
-    "build": "node node_modules/convex/bin/main.js deploy --cmd \"next build\" --cmd-url-env-var-name NEXT_PUBLIC_CONVEX_URL",
+    "convex": "convex dev",
+    "build": "next build",
     "build:next": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -14,13 +14,11 @@
   },
   "dependencies": {
     "@micahtid/ui": "workspace:*",
-    "convex": "^1.17.4",
+    "convex": "^1.39.1",
     "lucide-react": "^1.14.0",
     "next": "^16.2.6",
     "react": "^19.2.6",
-    "react-dom": "^19.2.6",
-    "react-markdown": "^9.0.1",
-    "remark-gfm": "^4.0.0"
+    "react-dom": "^19.2.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.0-beta.6",
