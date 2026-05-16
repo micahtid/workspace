@@ -3,7 +3,15 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**"],
+      "env": [
+        "CONVEX_DEPLOY_KEY",
+        "NEXT_PUBLIC_CONVEX_URL",
+        "ADMIN_PASSWORD",
+        "ADMIN_SESSION_SECRET",
+        "CLOUDFLARE_API_TOKEN",
+        "CLOUDFLARE_ZONE_ID"
+      ]
     },
     "dev": {
       "cache": false,
