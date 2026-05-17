@@ -13,7 +13,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Library—@micahtid/ui",
+  title: "Library",
   description:
     "Live documentation for the @micahtid/ui design system: typography, color, and components.",
 };

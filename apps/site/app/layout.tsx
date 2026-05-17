@@ -11,7 +11,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Micah's Page",
+  title: "Micah Tidball",
   description: "Micah Tidball's personal portfolio.",
 };
 

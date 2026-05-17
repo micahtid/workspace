@@ -10,7 +10,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "LeetCode Notes",
+  title: "Notes",
   description: "A quiet place to take notes on LeetCode problems.",
 };
 
