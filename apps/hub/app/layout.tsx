@@ -11,7 +11,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Personal Hub",
+  title: "Hub",
   description: "A minimal hub for tracking workouts and habits.",
 };
 
