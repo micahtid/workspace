@@ -30,7 +30,7 @@ export default function ColorPage() {
     <div>
       <PageHero
         title="Color"
-        description="A single neutral ramp does the heavy lifting. Semantic tokens flip in dark mode — swap the theme toggle to see them shift."
+        description="A single neutral ramp does the heavy lifting. Semantic tokens flip in dark mode—swap the theme toggle to see them shift."
       />
 
       <SectionHeading>Ink Scale</SectionHeading>

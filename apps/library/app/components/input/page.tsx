@@ -6,7 +6,7 @@ export default function InputShowcase() {
     <div>
       <PageHero
         title="Input"
-        description="Single-line and multi-line text fields. The same rounded, bordered surface — hover thickens the border, focus turns it ink-900."
+        description="Single-line and multi-line text fields. The same rounded, bordered surface—hover thickens the border, focus turns it ink-900."
       />
 
       <Demo
@@ -34,7 +34,7 @@ export default function InputShowcase() {
         code={`<Input disabled value="Read-only" />`}
       >
         <div className="w-full max-w-sm">
-          <Input disabled defaultValue="Read-only value" />
+          <Input disabled defaultValue="Read-Only Value" />
         </div>
       </Demo>
 

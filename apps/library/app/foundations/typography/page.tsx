@@ -21,7 +21,7 @@ export default function TypographyPage() {
     <div>
       <PageHero
         title="Typography"
-        description="Manrope, used everywhere. Numerals are tabular by default. These are the sizes and weights the real apps actually reach for — anything else is out of scope."
+        description="Manrope, used everywhere. Numerals are tabular by default. These are the sizes and weights the real apps actually reach for—anything else is out of scope."
       />
 
       <SectionHeading>Family</SectionHeading>
@@ -78,10 +78,7 @@ export default function TypographyPage() {
           Body copy sits comfortably at 16px. The hierarchy comes from size and
           weight, not from color or decoration.
         </p>
-        <div className="flex items-center pt-2">
-          <h2 className="text-lg font-bold shrink-0">A Section Heading</h2>
-          <div className="h-px bg-border grow ml-4" />
-        </div>
+        <h2 className="text-lg font-bold pt-2">A Section Heading</h2>
         <p className="text-sm text-muted">
           Secondary text at <code className="font-mono text-xs">text-sm</code>{" "}
           for metadata and supporting copy.

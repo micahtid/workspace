@@ -6,7 +6,7 @@ export default function LabelShowcase() {
     <div>
       <PageHero
         title="Label & Eyebrow"
-        description="Two tiny pieces of typography that get reused everywhere — form labels above fields, and small muted eyebrows beside grouped controls."
+        description="Two tiny pieces of typography that get reused everywhere—form labels above fields, and small muted eyebrows beside grouped controls."
       />
 
       <Demo
@@ -28,7 +28,7 @@ export default function LabelShowcase() {
       >
         <div className="flex items-center gap-3">
           <Eyebrow>Group</Eyebrow>
-          <span className="text-sm">By difficulty</span>
+          <span className="text-sm">By Difficulty</span>
         </div>
       </Demo>
     </div>

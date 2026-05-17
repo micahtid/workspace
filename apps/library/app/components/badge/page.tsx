@@ -6,7 +6,7 @@ export default function BadgeShowcase() {
     <div>
       <PageHero
         title="Badge / Chip"
-        description="A pill for tags, statuses, and filter toggles. Two tones — neutral by default, solid for the 'on' state."
+        description="A pill for tags, statuses, and filter toggles. Two tones—neutral by default, solid for the 'on' state."
       />
 
       <Demo

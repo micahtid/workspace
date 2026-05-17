@@ -6,7 +6,7 @@ export function Skeleton({ className = "", ...props }: SkeletonProps) {
   return (
     <div
       {...props}
-      className={`rounded-md bg-surface-muted ${className}`.trim()}
+      className={`rounded-md bg-ink-100 dark:bg-ink-800 ${className}`.trim()}
     />
   );
 }

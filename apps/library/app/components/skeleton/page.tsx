@@ -6,12 +6,13 @@ export default function SkeletonShowcase() {
     <div>
       <PageHero
         title="Skeleton"
-        description="A muted placeholder that holds space until real content arrives. Static — no pulse. Pulses cycle look broken when data resolves in &lt;100ms."
+        description="A muted placeholder that holds space until real content arrives. Static—no pulse. Pulse cycles look broken when data resolves in &lt;100ms."
       />
 
       <Demo
         title="Sizes"
         code={`<Skeleton className="h-3 w-24" />`}
+        background="surface"
       >
         <div className="space-y-2 w-64">
           <Skeleton className="h-3 w-1/2" />
@@ -26,6 +27,7 @@ export default function SkeletonShowcase() {
   <Skeleton className="h-4 w-32" />
   <Skeleton className="h-3 w-full" />
 </Card>`}
+        background="surface"
       >
         <Card className="w-full max-w-sm space-y-3">
           <Skeleton className="h-4 w-1/3" />

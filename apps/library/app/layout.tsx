@@ -13,7 +13,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Library — @micahtid/ui",
+  title: "Library—@micahtid/ui",
   description:
     "Live documentation for the @micahtid/ui design system: typography, color, and components.",
 };
@@ -40,9 +40,8 @@ export default function RootLayout({
 
         <aside className="w-64 shrink-0 border-r border-border bg-surface sticky top-0 h-screen overflow-y-auto no-scrollbar flex flex-col">
           <div className="flex items-start justify-between px-6 pt-10 pb-8">
-            <Link href="/">
-              <div className="text-xl font-bold tracking-tight">Library</div>
-              <div className="text-xs text-muted mt-1">@micahtid/ui</div>
+            <Link href="/" className="text-xl font-bold tracking-tight">
+              Library
             </Link>
             <ThemeToggle />
           </div>

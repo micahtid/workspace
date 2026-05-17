@@ -31,36 +31,33 @@ export const foundations: RegistryEntry[] = [
   },
 ];
 
-export const components: RegistryEntry[] = [
+export const actions: RegistryEntry[] = [
   {
     slug: "button",
     name: "Button",
     href: "/components/button",
-    summary: "Primary, ghost, danger, and icon-only variants.",
+    summary: "Primary, ghost, and danger variants in three sizes.",
   },
   {
-    slug: "card",
-    name: "Card",
-    href: "/components/card",
-    summary: "Bordered surface containers with header/body slots.",
+    slug: "icon-button",
+    name: "Icon Button",
+    href: "/components/icon-button",
+    summary: "Square icon-only button for toolbars and tight spaces.",
   },
-  {
-    slug: "divider",
-    name: "Divider",
-    href: "/components/divider",
-    summary: "Section rules: horizontal, inline with label, vertical.",
-  },
-  {
-    slug: "badge",
-    name: "Badge / Chip",
-    href: "/components/badge",
-    summary: "Pill labels for tags, status, and filters.",
-  },
+];
+
+export const inputs: RegistryEntry[] = [
   {
     slug: "input",
     name: "Input",
     href: "/components/input",
-    summary: "Text input with hover and focus rings, plus textarea.",
+    summary: "Single-line text field with hover and focus rings.",
+  },
+  {
+    slug: "textarea",
+    name: "Textarea",
+    href: "/components/textarea",
+    summary: "Multi-line text field; shares the input visual style.",
   },
   {
     slug: "label",
@@ -69,28 +66,71 @@ export const components: RegistryEntry[] = [
     summary: "Form labels and small muted eyebrows.",
   },
   {
-    slug: "skeleton",
-    name: "Skeleton",
-    href: "/components/skeleton",
-    summary: "Loading placeholders sized to real content.",
-  },
-  {
     slug: "segmented",
     name: "Segmented Control",
     href: "/components/segmented",
     summary: "iOS-style pill switcher for small option groups.",
   },
+];
+
+export const layout: RegistryEntry[] = [
+  {
+    slug: "card",
+    name: "Card",
+    href: "/components/card",
+    summary: "Bordered surface containers with header / body slots.",
+  },
+  {
+    slug: "divider",
+    name: "Divider",
+    href: "/components/divider",
+    summary: "Section rules: horizontal, inline with label, vertical.",
+  },
   {
     slug: "page-header",
-    name: "PageHeader",
+    name: "Page Header",
     href: "/components/page-header",
     summary: "Title, optional subtitle, back-link, and action slot.",
   },
 ];
 
+export const feedback: RegistryEntry[] = [
+  {
+    slug: "badge",
+    name: "Badge / Chip",
+    href: "/components/badge",
+    summary: "Pill labels for tags, status, and filters.",
+  },
+  {
+    slug: "skeleton",
+    name: "Skeleton",
+    href: "/components/skeleton",
+    summary: "Loading placeholders sized to real content.",
+  },
+];
+
+export const patterns: RegistryEntry[] = [
+  {
+    slug: "command-palette",
+    name: "Command Palette",
+    href: "/patterns/command-palette",
+    summary: "⌘K modal navigator—the one you're using right now.",
+  },
+  {
+    slug: "theme-toggle",
+    name: "Theme Toggle",
+    href: "/patterns/theme-toggle",
+    summary: "Light / dark mode switcher with localStorage persistence.",
+  },
+];
+
 export const sections: RegistrySection[] = [
   { title: "Foundations", entries: foundations },
-  { title: "Components", entries: components },
+  { title: "Actions", entries: actions },
+  { title: "Inputs", entries: inputs },
+  { title: "Layout", entries: layout },
+  { title: "Feedback", entries: feedback },
+  { title: "Patterns", entries: patterns },
 ];
 
 export const allEntries: RegistryEntry[] = sections.flatMap((s) => s.entries);
