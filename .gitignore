@@ -34,3 +34,5 @@ yarn-error.log*
 !.vscode/settings.json
 !.vscode/extensions.json
 .idea
+.gstack/
+.tmp/
