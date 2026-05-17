@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Rock_Salt } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import ScreenSizeChecker from "./components/ScreenSizeChecker";
 
@@ -10,14 +10,8 @@ const manrope = Manrope({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const rockSalt = Rock_Salt({
-  variable: "--font-accent",
-  subsets: ["latin"],
-  weight: "400",
-});
-
 export const metadata: Metadata = {
-  title: "Micah's Page",
+  title: "Micah Tidball",
   description: "Micah Tidball's personal portfolio.",
 };
 
@@ -43,7 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${manrope.variable} ${rockSalt.variable} antialiased`}
+        className={`${manrope.variable} antialiased`}
         suppressHydrationWarning
       >
         <ScreenSizeChecker />

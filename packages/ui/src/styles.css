@@ -1,0 +1,299 @@
+/*
+ * @micahtid/ui — shared design system
+ *
+ * Imported by every app's globals.css. Defines the design tokens, dark-mode
+ * semantic tokens, and the CSS primitives (.btn, .card, .input, .label,
+ * .eyebrow, .skeleton, .segmented, .chip, .icon-btn, .back-link) that both
+ * the React components in this package and the apps' inline class usage
+ * depend on. One update here propagates everywhere.
+ */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-ink-0: #ffffff;
+  --color-ink-50: #fafafa;
+  --color-ink-100: #f4f4f5;
+  --color-ink-200: #e4e4e7;
+  --color-ink-300: #d4d4d8;
+  --color-ink-400: #a1a1aa;
+  --color-ink-500: #71717a;
+  --color-ink-600: #52525b;
+  --color-ink-700: #3f3f46;
+  --color-ink-800: #27272a;
+  --color-ink-900: #18181b;
+  --color-ink-1000: #09090b;
+
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-2xl: 12px;
+  --radius-card: 12px;
+  --radius-pill: 999px;
+}
+
+:root {
+  --background: var(--color-ink-0);
+  --foreground: var(--color-ink-900);
+  --surface: var(--color-ink-0);
+  --surface-muted: var(--color-ink-50);
+  --border: var(--color-ink-200);
+  --border-strong: var(--color-ink-300);
+  --muted: var(--color-ink-500);
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #e4e4e7;
+  --surface: #18181b;
+  --surface-muted: #27272a;
+  --border: #27272a;
+  --border-strong: #3f3f46;
+  --muted: #a1a1aa;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-muted: var(--muted);
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  * {
+    box-shadow: none !important;
+  }
+
+  button {
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+  }
+
+  *:focus {
+    outline: none;
+  }
+  *:focus-visible {
+    outline: 1.5px solid var(--color-ink-900);
+    outline-offset: 2px;
+  }
+  .dark *:focus-visible {
+    outline-color: var(--color-ink-100);
+  }
+}
+
+@layer components {
+  .card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+  }
+
+  /* Buttons — flat, rounded, never floating. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: var(--radius-xl);
+    border: 1px solid transparent;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    min-height: 38px;
+    white-space: nowrap;
+    transition: background-color 150ms ease, color 150ms ease,
+      border-color 150ms ease;
+  }
+
+  .btn-primary {
+    background: var(--color-ink-900);
+    color: var(--color-ink-0);
+    border-color: var(--color-ink-900);
+  }
+  .btn-primary:hover {
+    background: var(--color-ink-700);
+    border-color: var(--color-ink-700);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--foreground);
+    border-color: var(--border);
+  }
+  .btn-ghost:hover {
+    background: var(--surface-muted);
+    border-color: var(--border-strong);
+  }
+
+  .btn-danger {
+    background: transparent;
+    color: var(--foreground);
+    border-color: var(--border);
+  }
+  .btn-danger:hover {
+    background: var(--color-ink-900);
+    color: var(--color-ink-0);
+    border-color: var(--color-ink-900);
+  }
+
+  /* Icon-only square button — used for chevron back/forward */
+  .icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+    color: var(--color-ink-700);
+    background: var(--surface);
+    transition: background-color 150ms ease, color 150ms ease,
+      border-color 150ms ease;
+  }
+  .icon-btn:hover {
+    background: var(--surface-muted);
+    border-color: var(--border-strong);
+    color: var(--foreground);
+  }
+  .icon-btn > svg {
+    display: block;
+  }
+
+  /* Back link — chevron + label, perfectly centered */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1;
+    transition: color 150ms ease;
+  }
+  .back-link:hover {
+    color: var(--foreground);
+  }
+  .back-link > svg {
+    display: block;
+  }
+
+  .input {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 10px 12px;
+    background: var(--surface);
+    color: var(--foreground);
+    font-size: 14px;
+    line-height: 1.4;
+    transition: border-color 150ms ease;
+  }
+  .input:hover {
+    border-color: var(--border-strong);
+  }
+  .input:focus {
+    border-color: var(--color-ink-900);
+  }
+
+  /* iOS Safari (and some Android browsers) auto-zoom into form fields
+     with font-size < 16px on focus. Bump to 16px on touch devices only,
+     so desktop typography stays at 14px. */
+  @media (hover: none) and (pointer: coarse) {
+    .input,
+    input,
+    textarea,
+    select {
+      font-size: 16px;
+    }
+  }
+
+  .label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  /* Eyebrow / section / column label — small, muted, regular case. */
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  /* Loading skeleton: a muted box that holds space until real content
+     replaces it. Static (no pulse) — pulse cycles look broken when
+     Convex resolves in <100ms. */
+  .skeleton {
+    background: var(--color-ink-100);
+    border-radius: var(--radius-md);
+  }
+  .dark .skeleton {
+    background: var(--color-ink-800);
+  }
+
+  /* iOS-style segmented control. Track + selected pill, no shadows. */
+  .segmented {
+    display: inline-flex;
+    background: var(--color-ink-100);
+    border-radius: var(--radius-lg);
+    padding: 3px;
+    gap: 2px;
+  }
+  .segmented-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: var(--muted);
+    transition: background-color 150ms ease, color 150ms ease;
+    cursor: pointer;
+  }
+  .segmented-item:hover {
+    color: var(--foreground);
+  }
+  .segmented-item.is-active {
+    background: var(--surface);
+    color: var(--foreground);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--color-ink-700);
+    background: var(--surface);
+  }
+  .chip-on {
+    background: var(--color-ink-900);
+    color: var(--color-ink-0);
+    border-color: var(--color-ink-900);
+  }
+}
