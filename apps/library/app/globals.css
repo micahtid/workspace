@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@source "../../../packages/ui/src/**/*.{ts,tsx}";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-ink-0: #ffffff;
+  --color-ink-50: #fafafa;
+  --color-ink-100: #f4f4f5;
+  --color-ink-200: #e4e4e7;
+  --color-ink-300: #d4d4d8;
+  --color-ink-400: #a1a1aa;
+  --color-ink-500: #71717a;
+  --color-ink-600: #52525b;
+  --color-ink-700: #3f3f46;
+  --color-ink-800: #27272a;
+  --color-ink-900: #18181b;
+  --color-ink-1000: #09090b;
+
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-2xl: 12px;
+  --radius-card: 12px;
+  --radius-pill: 999px;
+}
+
+:root {
+  --background: var(--color-ink-0);
+  --foreground: var(--color-ink-900);
+  --surface: var(--color-ink-0);
+  --surface-muted: var(--color-ink-50);
+  --border: var(--color-ink-200);
+  --border-strong: var(--color-ink-300);
+  --muted: var(--color-ink-500);
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #e4e4e7;
+  --surface: #18181b;
+  --surface-muted: #27272a;
+  --border: #27272a;
+  --border-strong: #3f3f46;
+  --muted: #a1a1aa;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-muted: var(--muted);
+  --font-primary: var(--font-primary);
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-primary), ui-sans-serif, system-ui, -apple-system,
+      "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  * {
+    box-shadow: none !important;
+  }
+
+  button {
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+  }
+
+  *:focus {
+    outline: none;
+  }
+  *:focus-visible {
+    outline: 1.5px solid var(--color-ink-900);
+    outline-offset: 2px;
+  }
+  .dark *:focus-visible {
+    outline-color: var(--color-ink-100);
+  }
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
