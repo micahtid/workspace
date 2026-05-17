@@ -75,20 +75,20 @@ export default function ButtonShowcase() {
 
       <Demo
         title="Disabled"
-        code={`<Button disabled>Can't click</Button>
-<Button variant="ghost" disabled>Can't click</Button>`}
+        code={`<Button disabled>Can't Click</Button>
+<Button variant="ghost" disabled>Can't Click</Button>`}
       >
-        <Button disabled>Can&apos;t click</Button>
+        <Button disabled>Can&apos;t Click</Button>
         <Button variant="ghost" disabled>
-          Can&apos;t click
+          Can&apos;t Click
         </Button>
       </Demo>
 
       <Demo
         title="Interactive"
-        code={`<Button onClick={() => alert("hi")}>Say hi</Button>`}
+        code={`<Button onClick={() => alert("hi")}>Say Hi</Button>`}
       >
-        <Button onClick={() => alert("hi")}>Say hi</Button>
+        <Button onClick={() => alert("hi")}>Say Hi</Button>
       </Demo>
     </div>
   );

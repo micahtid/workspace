@@ -9,15 +9,15 @@ const RADII = [
 ];
 
 const SPACES = [
-  { name: "1 — 4px", className: "w-1" },
-  { name: "2 — 8px", className: "w-2" },
-  { name: "3 — 12px", className: "w-3" },
-  { name: "4 — 16px", className: "w-4" },
-  { name: "6 — 24px", className: "w-6" },
-  { name: "8 — 32px", className: "w-8" },
-  { name: "10 — 40px", className: "w-10" },
-  { name: "12 — 48px", className: "w-12" },
-  { name: "16 — 64px", className: "w-16" },
+  { name: "1—4px", className: "w-1" },
+  { name: "2—8px", className: "w-2" },
+  { name: "3—12px", className: "w-3" },
+  { name: "4—16px", className: "w-4" },
+  { name: "6—24px", className: "w-6" },
+  { name: "8—32px", className: "w-8" },
+  { name: "10—40px", className: "w-10" },
+  { name: "12—48px", className: "w-12" },
+  { name: "16—64px", className: "w-16" },
 ];
 
 export default function SpacingPage() {

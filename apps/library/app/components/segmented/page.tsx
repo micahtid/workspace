@@ -12,7 +12,7 @@ export default function SegmentedShowcase() {
     <div>
       <PageHero
         title="Segmented control"
-        description="A track with a selected pill — small option groups where a dropdown would be overkill."
+        description="A track with a selected pill—small option groups where a dropdown would be overkill."
       />
 
       <Demo

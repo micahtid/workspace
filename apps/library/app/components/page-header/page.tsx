@@ -5,7 +5,7 @@ export default function PageHeaderShowcase() {
   return (
     <div>
       <PageHero
-        title="PageHeader"
+        title="Page Header"
         description="The opening of every screen. Title plus optional subtitle, back-link, and right-side action slot."
       />
 
@@ -24,7 +24,7 @@ export default function PageHeaderShowcase() {
         code={`<PageHeader
   title="Habits"
   subtitle="Track the daily ones."
-  action={<Button>New habit</Button>}
+  action={<Button>New Habit</Button>}
 />`}
         background="surface"
       >
@@ -32,7 +32,7 @@ export default function PageHeaderShowcase() {
           <PageHeader
             title="Habits"
             subtitle="Track the daily ones."
-            action={<Button>New habit</Button>}
+            action={<Button>New Habit</Button>}
           />
         </div>
       </Demo>
@@ -40,14 +40,14 @@ export default function PageHeaderShowcase() {
       <Demo
         title="With Back Link"
         code={`<PageHeader
-  title="Upper body — Tuesday"
+  title="Upper Body—Tuesday"
   back={{ href: "/workouts", label: "All workouts" }}
 />`}
         background="surface"
       >
         <div className="w-full">
           <PageHeader
-            title="Upper body — Tuesday"
+            title="Upper Body—Tuesday"
             back={{ href: "#", label: "All workouts" }}
           />
         </div>

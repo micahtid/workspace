@@ -56,10 +56,5 @@ export function PageHero({
 }
 
 export function SectionHeading({ children }: { children: ReactNode }) {
-  return (
-    <div className="flex items-center mb-6 mt-12">
-      <h2 className="text-lg font-bold shrink-0">{children}</h2>
-      <div className="h-px bg-border grow ml-4" />
-    </div>
-  );
+  return <h2 className="text-lg font-bold mb-6 mt-12">{children}</h2>;
 }
