@@ -26,7 +26,7 @@ export default function GlyphBlogPost() {
                     className="inline-flex items-center text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors mb-8"
                 >
                     <FiArrowLeft className="mr-1.5" />
-                    Back to Home
+                    Back
                 </Link>
 
                 <article>

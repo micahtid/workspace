@@ -73,7 +73,7 @@ export default function Home() {
   }, [filtered, groupBy]);
 
   return (
-    <main className="flex-1 max-w-5xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12 animate-page-in">
+    <main className="flex-1 max-w-5xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
       <PageHeader
         title="LeetCode Notes"
         subtitle="A quiet place to take notes on problems."

@@ -11,7 +11,7 @@ export default function NewQuestionPage() {
   const create = useMutation(api.questions.create);
 
   return (
-    <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12 animate-page-in">
+    <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
       <PageHeader
         title="New Question"
         back={{ href: "/", label: "All Questions" }}

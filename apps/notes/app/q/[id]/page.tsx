@@ -43,12 +43,19 @@ export default function QuestionViewPage({
   const tags = question.tags ?? [];
 
   return (
-    <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12 animate-page-in">
+    <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
       <PageHeader
         title={question.title}
         back={{ href: "/", label: "All Questions" }}
         titleSuffix={
-          <DifficultyChip value={question.difficulty as Difficulty} />
+          <span className="inline-flex flex-wrap items-center gap-2">
+            <DifficultyChip value={question.difficulty as Difficulty} />
+            {tags.map((t) => (
+              <span key={t} className="chip">
+                {t}
+              </span>
+            ))}
+          </span>
         }
         action={
           <Link href={`/q/${id}/edit`} className="btn btn-ghost">
@@ -57,16 +64,6 @@ export default function QuestionViewPage({
           </Link>
         }
       />
-
-      {tags.length > 0 ? (
-        <div className="flex flex-wrap items-center gap-2 mb-6">
-          {tags.map((t) => (
-            <span key={t} className="chip">
-              {t}
-            </span>
-          ))}
-        </div>
-      ) : null}
 
       {question.body.trim() ? (
         <Markdown source={question.body} />

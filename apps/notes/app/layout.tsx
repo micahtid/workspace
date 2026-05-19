@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import { ConvexClientProvider } from "./convex-provider";
+import { PageTransition } from "./components/PageTransition";
 
 const manrope = Manrope({
   variable: "--font-primary",
@@ -22,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={manrope.variable}>
       <body suppressHydrationWarning>
-        <ConvexClientProvider>{children}</ConvexClientProvider>
+        <ConvexClientProvider>
+          <PageTransition>{children}</PageTransition>
+        </ConvexClientProvider>
       </body>
     </html>
   );
