@@ -8,19 +8,31 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-const APPS: { href: string; title: string; Icon: LucideIcon }[] = [
-  { href: "/habits", title: "Habit", Icon: Check },
-  { href: "/workouts", title: "Workout", Icon: Activity },
-  { href: "/leetcode", title: "LeetCode", Icon: Code2 },
-  { href: "/space", title: "Space", Icon: AlignCenter },
+type App = { href: string; title: string; Icon: LucideIcon };
+
+// Each inner array is one bordered section; sections are spaced vertically.
+const SECTIONS: App[][] = [
+  [{ href: "/space", title: "Space", Icon: AlignCenter }],
+  [
+    { href: "/habits", title: "Habit", Icon: Check },
+    { href: "/workouts", title: "Workout", Icon: Activity },
+  ],
+  [{ href: "/leetcode", title: "LeetCode", Icon: Code2 }],
 ];
 
 export default function Home() {
   return (
     <main className="min-h-screen flex items-center justify-center px-5 sm:px-6 py-10">
-      <div className="card divide-y divide-ink-200 overflow-hidden w-full max-w-[680px] -mt-16 sm:-mt-24">
-        {APPS.map((app) => (
-          <AppRow key={app.href} {...app} />
+      <div className="w-full max-w-[680px] -mt-16 sm:-mt-24 space-y-4">
+        {SECTIONS.map((section, i) => (
+          <div
+            key={i}
+            className="card divide-y divide-ink-200 overflow-hidden"
+          >
+            {section.map((app) => (
+              <AppRow key={app.href} {...app} />
+            ))}
+          </div>
         ))}
       </div>
     </main>
