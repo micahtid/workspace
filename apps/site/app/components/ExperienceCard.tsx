@@ -40,7 +40,7 @@ export default function ExperienceCard({
                 href={link}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
-                className="block hover:bg-neutral-50 dark:hover:bg-neutral-800/50 -mx-2 px-2 rounded-lg transition-colors"
+                className="block transition-colors"
             >
                 {content}
             </Link>

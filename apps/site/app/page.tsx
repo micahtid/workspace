@@ -44,26 +44,20 @@ const hackathons = [
 ];
 
 const experiments = [
-  // {
-  //   title: "Glyph",
-  //   description: "Coming soon!",
-  // },
-  // {
-  //   title: "SnipCode",
-  //   description: "Coming soon!",
-  // },
+  { title: "SnipCode" },
+  { title: "CustomCanvas" },
   {
     title: "Restoring Rainbows",
-    description: "An organizational website for a global youth-led NPO, featuring an admin dashboard for centralized data management.",
     githubLink: "https://github.com/micahtid/restoring-rainbows",
-    websiteLink: "https://www.restoringrainbows.org/",
-  },
-  {
-    title: "Mira",
-    description: "A volunteer platform for youth-led organizations to create and track internship and volunteer opportunities.",
-    githubLink: "https://github.com/micahtid/mira",
   },
 ];
+
+// On hover, dim every non-hovered row (and its children) to a soft gray so the
+// hovered row stands out — no background fill. Applied to each section list.
+const rowGroup =
+  "[&_*]:transition-colors " +
+  "[&:has(>*:hover)>*:not(:hover)]:text-neutral-300 dark:[&:has(>*:hover)>*:not(:hover)]:text-neutral-600 " +
+  "[&:has(>*:hover)>*:not(:hover)_*]:text-neutral-300 dark:[&:has(>*:hover)>*:not(:hover)_*]:text-neutral-600";
 
 export default function Home() {
   const recentPosts = blogPosts.slice(0, 3);
@@ -93,7 +87,7 @@ export default function Home() {
             <h2 className="text-lg font-bold text-neutral-800 dark:text-neutral-200 shrink-0">Work Experience</h2>
             <div className="h-px bg-neutral-200 dark:bg-neutral-800 grow ml-4" />
           </div>
-          <div>
+          <div className={rowGroup}>
             {experiences.map((exp) => (
               <ExperienceCard key={exp.label} {...exp} />
             ))}
@@ -115,7 +109,7 @@ export default function Home() {
               View all
             </a>
           </div>
-          <div>
+          <div className={rowGroup}>
             {experiments.map((exp) => (
               <ExperimentCard key={exp.title} {...exp} />
             ))}
@@ -137,7 +131,7 @@ export default function Home() {
               View all
             </a>
           </div>
-          <div>
+          <div className={rowGroup}>
             {hackathons.map((h) => (
               <HackathonCard key={h.name} {...h} />
             ))}
@@ -157,7 +151,7 @@ export default function Home() {
               View all
             </Link>
           </div>
-          <div>
+          <div className={rowGroup}>
             {recentPosts.map((post) => (
               <BlogCard key={post.title} {...post} />
             ))}

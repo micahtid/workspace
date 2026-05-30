@@ -14,13 +14,13 @@ export default function Hero({ imageSrc, name, description }: HeroProps) {
         <section className="flex flex-col items-start text-left mb-12 sm:mb-20">
             {/* Name with Profile Image */}
             <div className="flex items-end gap-3 sm:gap-4 mb-2 sm:mb-3">
-                <div className="w-14 h-14 sm:w-[88px] sm:h-[88px] rounded-xl overflow-hidden border-4 border-gray-300/50 dark:border-neutral-700 shrink-0">
+                <div className="w-[42px] h-[42px] sm:w-[66px] sm:h-[66px] rounded-xl overflow-hidden border border-gray-300/50 dark:border-neutral-700 shrink-0 rotate-[3deg]">
                     <Image
                         src={imageSrc}
                         alt={name}
                         width={96}
                         height={96}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover scale-110 -rotate-[3deg]"
                         priority
                     />
                 </div>
