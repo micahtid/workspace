@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
@@ -72,10 +73,15 @@ export default function ReviewPage() {
     }
   }
 
-  // Send the current card to the bottom of the stack without rating it.
-  function skip() {
-    if (!current || pending) return;
-    setQueue((q) => (q ? [...q, current] : q));
+  // Step backward/forward through the frozen review queue without rating.
+  function goBack() {
+    if (pending || index === 0) return;
+    setIndex((i) => Math.max(0, i - 1));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function goNext() {
+    if (pending) return;
     setIndex((i) => i + 1);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -215,14 +221,24 @@ export default function ReviewPage() {
             />
           </div>
         ) : null}
-        <div className="mt-3">
+        <div className="mt-3 flex items-center gap-2">
           <button
             type="button"
-            onClick={skip}
+            onClick={goBack}
+            disabled={pending || index === 0}
+            className="btn btn-ghost disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <ArrowBigRight size={16} strokeWidth={2} />
+            Back
+          </button>
+          <button
+            type="button"
+            onClick={goNext}
             disabled={pending}
             className="btn btn-ghost disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Skip
+            Next
+            <ArrowBigLeft size={16} strokeWidth={2} />
           </button>
         </div>
       </div>
