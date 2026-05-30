@@ -4,8 +4,8 @@ import Link from "next/link";
 import { use } from "react";
 import { useQuery } from "convex/react";
 import { Pencil } from "lucide-react";
-import { api } from "../../../convex/_generated/api";
-import type { Id } from "../../../convex/_generated/dataModel";
+import { api } from "@/convex/_generated/api";
+import type { Id } from "@/convex/_generated/dataModel";
 import { PageHeader } from "../../components/PageHeader";
 import { DifficultyChip, type Difficulty } from "../../components/DifficultyChip";
 import { Markdown } from "../../components/Markdown";
@@ -16,7 +16,7 @@ export default function QuestionViewPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = use(params);
-  const question = useQuery(api.questions.get, {
+  const question = useQuery(api.leetcode.get, {
     id: id as Id<"leetcodeQuestions">,
   });
 
@@ -33,7 +33,7 @@ export default function QuestionViewPage({
       <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
         <PageHeader
           title="Not Found"
-          back={{ href: "/", label: "All Questions" }}
+          back={{ href: "/leetcode", label: "All Questions" }}
           subtitle="That question does not exist or was deleted."
         />
       </main>
@@ -46,7 +46,7 @@ export default function QuestionViewPage({
     <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
       <PageHeader
         title={question.title}
-        back={{ href: "/", label: "All Questions" }}
+        back={{ href: "/leetcode", label: "All Questions" }}
         titleSuffix={
           <span className="inline-flex flex-wrap items-center gap-2">
             <DifficultyChip value={question.difficulty as Difficulty} />
@@ -58,7 +58,7 @@ export default function QuestionViewPage({
           </span>
         }
         action={
-          <Link href={`/q/${id}/edit`} className="btn btn-ghost">
+          <Link href={`/leetcode/q/${id}/edit`} className="btn btn-ghost">
             <Pencil size={14} strokeWidth={2} />
             <span>Edit</span>
           </Link>
@@ -70,7 +70,7 @@ export default function QuestionViewPage({
       ) : (
         <div className="card p-10 text-center">
           <p className="text-sm text-ink-500 mb-4">No Notes Yet.</p>
-          <Link href={`/q/${id}/edit`} className="btn btn-primary">
+          <Link href={`/leetcode/q/${id}/edit`} className="btn btn-primary">
             Add Notes
           </Link>
         </div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "convex/react";
 import { Plus, Sparkles } from "lucide-react";
-import { api } from "../convex/_generated/api";
+import { api } from "@/convex/_generated/api";
 import { PageHeader } from "./components/PageHeader";
 import { Toolbar, type DifficultyFilter } from "./components/Toolbar";
 import type { GroupBy } from "./components/GroupBySwitcher";
@@ -14,8 +14,8 @@ const GROUP_STORAGE_KEY = "leetcode:groupBy";
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
 
 export default function Home() {
-  const data = useQuery(api.questions.list);
-  const allTags = useQuery(api.questions.listTags) ?? [];
+  const data = useQuery(api.leetcode.list);
+  const allTags = useQuery(api.leetcode.listTags) ?? [];
 
   const [search, setSearch] = useState("");
   const [difficulty, setDifficulty] = useState<DifficultyFilter>("All");
@@ -77,17 +77,18 @@ export default function Home() {
       <PageHeader
         title="LeetCode Notes"
         subtitle="A quiet place to take notes on problems."
+        back={{ href: "/", label: "Hub" }}
         action={
           <div className="flex items-center gap-2">
             <Link
-              href="/review"
+              href="/leetcode/review"
               className={`btn ${dueCount > 0 ? "btn-primary" : "btn-ghost"}`}
               aria-label={`Review ${dueCount} due cards`}
             >
               <Sparkles size={14} strokeWidth={2} />
               <span>Review{dueCount > 0 ? ` (${dueCount})` : ""}</span>
             </Link>
-            <Link href="/q/new" className="btn btn-primary">
+            <Link href="/leetcode/q/new" className="btn btn-primary">
               <Plus size={14} strokeWidth={2} />
               <span>New Question</span>
             </Link>
@@ -156,7 +157,7 @@ function EmptyState() {
   return (
     <div className="card p-10 text-center">
       <p className="text-sm text-ink-600 mb-4">No Questions Yet.</p>
-      <Link href="/q/new" className="btn btn-primary">
+      <Link href="/leetcode/q/new" className="btn btn-primary">
         Add Your First Question
       </Link>
     </div>

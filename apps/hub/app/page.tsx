@@ -18,6 +18,9 @@ export default function Home() {
           <li>
             <Tile href="/habits" title="Habit Tracker" />
           </li>
+          <li>
+            <Tile href="/leetcode" title="LeetCode" />
+          </li>
         </ul>
       </main>
     </div>

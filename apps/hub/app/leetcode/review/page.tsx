@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useMutation, useQuery } from "convex/react";
-import { api } from "../../convex/_generated/api";
-import type { Id } from "../../convex/_generated/dataModel";
+import { api } from "@/convex/_generated/api";
+import type { Id } from "@/convex/_generated/dataModel";
 import { PageHeader } from "../components/PageHeader";
 import { DifficultyChip, type Difficulty } from "../components/DifficultyChip";
 import { Markdown } from "../components/Markdown";
@@ -12,7 +12,7 @@ import {
   applyReview,
   relativeDueLabel,
   type Rating,
-} from "../../lib/srs";
+} from "@/lib/srs";
 
 type DueCard = {
   _id: Id<"leetcodeQuestions">;
@@ -29,8 +29,8 @@ type DueCard = {
 };
 
 export default function ReviewPage() {
-  const due = useQuery(api.questions.listDue);
-  const review = useMutation(api.questions.review);
+  const due = useQuery(api.leetcode.listDue);
+  const review = useMutation(api.leetcode.review);
 
   // Freeze the queue from when the page loaded so reviewing a card doesn't
   // immediately recompute Convex's view and skip the card you just rated.
@@ -83,7 +83,7 @@ export default function ReviewPage() {
       <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
         <PageHeader
           title="Review"
-          back={{ href: "/", label: "All Questions" }}
+          back={{ href: "/leetcode", label: "All Questions" }}
         />
         <p className="text-sm text-ink-500">Loading...</p>
       </main>
@@ -95,7 +95,7 @@ export default function ReviewPage() {
       <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
         <PageHeader
           title="Review"
-          back={{ href: "/", label: "All Questions" }}
+          back={{ href: "/leetcode", label: "All Questions" }}
         />
         <div className="card p-10 text-center">
           <p className="text-sm text-ink-700 font-medium mb-2">
@@ -105,7 +105,7 @@ export default function ReviewPage() {
             New questions and ones you've rated will surface here when they're
             scheduled for review.
           </p>
-          <Link href="/" className="btn btn-ghost">
+          <Link href="/leetcode" className="btn btn-ghost">
             Back to List
           </Link>
         </div>
@@ -118,7 +118,7 @@ export default function ReviewPage() {
       <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
         <PageHeader
           title="Review Complete"
-          back={{ href: "/", label: "All Questions" }}
+          back={{ href: "/leetcode", label: "All Questions" }}
         />
         <div className="card p-10 text-center">
           <p className="text-sm text-ink-700 font-medium mb-2">
@@ -128,7 +128,7 @@ export default function ReviewPage() {
             Come back tomorrow, or keep going if more cards have come due.
           </p>
           <div className="flex items-center justify-center gap-3 flex-wrap">
-            <Link href="/" className="btn btn-ghost">
+            <Link href="/leetcode" className="btn btn-ghost">
               Back to List
             </Link>
             <button onClick={restart} className="btn btn-primary">
@@ -150,7 +150,7 @@ export default function ReviewPage() {
     <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
       <PageHeader
         title="Review"
-        back={{ href: "/", label: "All Questions" }}
+        back={{ href: "/leetcode", label: "All Questions" }}
         subtitle={progress}
       />
 
