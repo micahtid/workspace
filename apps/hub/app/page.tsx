@@ -19,11 +19,10 @@ export default function Home() {
             <Tile href="/habits" title="Habit Tracker" />
           </li>
           <li>
-<<<<<<< HEAD
             <Tile href="/leetcode" title="LeetCode" />
-=======
+          </li>
+          <li>
             <Tile href="/space" title="Space" />
->>>>>>> space
           </li>
         </ul>
       </main>

@@ -75,7 +75,6 @@ export default defineSchema({
     .index("by_workout_date", ["workoutId", "date"])
     .index("by_workout", ["workoutId"]),
 
-<<<<<<< HEAD
   // LeetCode problem notes with SM-2 spaced-repetition state.
   // Consolidated from the standalone "notes" app so it shares this database.
   leetcodeQuestions: defineTable({
@@ -98,7 +97,7 @@ export default defineSchema({
   })
     .index("by_title", ["title"])
     .index("by_due", ["dueDate"]),
-=======
+
   // "Space" — a single plain-text canvas. Each row is one text placed at
   // (x, y) canvas-pixel coordinates, sized by fontSize (px). No formatting.
   spaceTexts: defineTable({
@@ -107,5 +106,4 @@ export default defineSchema({
     text: v.string(),
     fontSize: v.number(),
   }),
->>>>>>> space
 });
