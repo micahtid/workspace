@@ -40,13 +40,12 @@ export function CanvasSurface() {
       ref={surfaceRef}
       onPointerDown={handlePointerDown}
       onDoubleClick={handleDoubleClick}
-      className="relative w-full h-[70vh] rounded-2xl border border-ink-200 bg-ink-0 overflow-hidden select-none"
+      className="relative w-full h-full overflow-hidden select-none"
     >
       {texts?.map((t) => (
         <TextItem
           key={t._id}
           item={t}
-          surfaceRef={surfaceRef}
           selected={selectedId === t._id}
           autoEdit={autoEditId === t._id}
           onSelect={() => setSelectedId(t._id)}
