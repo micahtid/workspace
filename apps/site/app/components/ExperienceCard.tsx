@@ -22,9 +22,10 @@ export default function ExperienceCard({
                 <Image
                     src={imageSrc}
                     alt=""
-                    width={24}
-                    height={24}
-                    className="rounded mr-3 shrink-0 object-contain border border-gray-300/50"
+                    width={64}
+                    height={64}
+                    quality={100}
+                    className="w-6 h-6 rounded mr-3 shrink-0 object-contain border border-gray-300/50"
                 />
             )}
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center flex-1 min-w-0">

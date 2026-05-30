@@ -15,13 +15,13 @@ const experiences = [
     label: "SWE Intern @ Hudl",
     dateRange: "May 2026 - Present",
     link: "/experience/hudl",
-    // imageSrc: "/hudl.png",
+    imageSrc: "/hudl.jpg",
   },
   {
     label: "SWE @ FindU",
     dateRange: "Aug 2025 - Dec 2025",
     link: "/experience/findu",
-    // imageSrc: "/findu.png",
+    imageSrc: "/findu.jpg",
   },
 ];
 
@@ -55,9 +55,10 @@ const experiments = [
 // On hover, dim every non-hovered row (and its children) to a soft gray so the
 // hovered row stands out — no background fill. Applied to each section list.
 const rowGroup =
-  "[&_*]:transition-colors " +
+  "[&_*]:transition [&_*]:duration-[450ms] [&_*]:ease-[cubic-bezier(0.65,0,0.35,1)] " +
   "[&:has(>*:hover)>*:not(:hover)]:text-neutral-300 dark:[&:has(>*:hover)>*:not(:hover)]:text-neutral-600 " +
-  "[&:has(>*:hover)>*:not(:hover)_*]:text-neutral-300 dark:[&:has(>*:hover)>*:not(:hover)_*]:text-neutral-600";
+  "[&:has(>*:hover)>*:not(:hover)_*]:text-neutral-300 dark:[&:has(>*:hover)>*:not(:hover)_*]:text-neutral-600 " +
+  "[&:has(>*:hover)>*:not(:hover)_img]:grayscale [&:has(>*:hover)>*:not(:hover)_img]:opacity-40";
 
 export default function Home() {
   const recentPosts = blogPosts.slice(0, 3);
