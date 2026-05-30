@@ -9,6 +9,7 @@
  */
 
 import type * as habits from "../habits.js";
+import type * as leetcode from "../leetcode.js";
 import type * as sessions from "../sessions.js";
 import type * as workouts from "../workouts.js";
 
@@ -20,6 +21,7 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   habits: typeof habits;
+  leetcode: typeof leetcode;
   sessions: typeof sessions;
   workouts: typeof workouts;
 }>;

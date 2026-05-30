@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { DifficultyChip, type Difficulty } from "./DifficultyChip";
-import { relativeDueLabel } from "../../lib/srs";
+import { relativeDueLabel } from "@/lib/srs";
 
 export type QuestionRow = {
   _id: string;
@@ -19,7 +19,7 @@ export function QuestionListRow({ q }: { q: QuestionRow }) {
 
   return (
     <Link
-      href={`/q/${q._id}`}
+      href={`/leetcode/q/${q._id}`}
       className="card group flex items-center gap-4 p-4 sm:p-5 hover:border-ink-900 transition-colors"
     >
       <div className="min-w-0 flex-1">

@@ -54,7 +54,7 @@ export default function WorkoutDetailPage({
 
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
+      <main className="flex-1 max-w-[680px] mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
         <PageHeader
           back={{ href: "/workouts/manage", label: "Edit Workouts" }}
           title={workout.name}
@@ -204,7 +204,7 @@ export default function WorkoutDetailPage({
 function Shell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
+      <main className="flex-1 max-w-[680px] mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
         <PageHeader back={{ href: "/workouts/manage", label: "Edit workouts" }} title="Workout" />
         {children}
       </main>

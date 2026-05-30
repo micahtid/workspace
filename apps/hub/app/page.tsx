@@ -5,7 +5,7 @@ import { PageHeader } from "./components/PageHeader";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
+      <main className="flex-1 max-w-[680px] mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
         <PageHeader
           title="Hub"
           subtitle="A quiet place to track the work and the habit."
@@ -17,6 +17,9 @@ export default function Home() {
           </li>
           <li>
             <Tile href="/habits" title="Habit Tracker" />
+          </li>
+          <li>
+            <Tile href="/leetcode" title="LeetCode" />
           </li>
         </ul>
       </main>

@@ -21,6 +21,13 @@ next-env.d.ts
 # misc
 .DS_Store
 *.pem
+
+# Old standalone LeetCode app — consolidated into apps/hub (/leetcode).
+# Kept on disk as a backup but excluded from version control and deploys.
+/apps/notes
+
+# Convex snapshot backups (kept locally, not committed)
+/backups
 .vercel
 
 # logs

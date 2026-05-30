@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { useQuery } from "convex/react";
-import { api } from "../../convex/_generated/api";
+import { api } from "@/convex/_generated/api";
 import type { Difficulty } from "./DifficultyChip";
 import { TagsInput } from "./TagsInput";
 
@@ -40,7 +40,7 @@ export function QuestionForm({
   const [tags, setTags] = useState<string[]>(initial?.tags ?? []);
   const [saving, setSaving] = useState(false);
 
-  const suggestions = useQuery(api.questions.listTags) ?? [];
+  const suggestions = useQuery(api.leetcode.listTags) ?? [];
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();

@@ -3,8 +3,8 @@
 import { use } from "react";
 import { useRouter } from "next/navigation";
 import { useMutation, useQuery } from "convex/react";
-import { api } from "../../../../convex/_generated/api";
-import type { Id } from "../../../../convex/_generated/dataModel";
+import { api } from "@/convex/_generated/api";
+import type { Id } from "@/convex/_generated/dataModel";
 import { PageHeader } from "../../../components/PageHeader";
 import { QuestionForm } from "../../../components/QuestionForm";
 import type { Difficulty } from "../../../components/DifficultyChip";
@@ -17,13 +17,13 @@ export default function EditQuestionPage({
   const router = useRouter();
   const { id } = use(params);
   const typedId = id as Id<"leetcodeQuestions">;
-  const question = useQuery(api.questions.get, { id: typedId });
-  const update = useMutation(api.questions.update);
-  const remove = useMutation(api.questions.remove);
+  const question = useQuery(api.leetcode.get, { id: typedId });
+  const update = useMutation(api.leetcode.update);
+  const remove = useMutation(api.leetcode.remove);
 
   if (question === undefined) {
     return (
-      <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
+      <main className="flex-1 max-w-[680px] mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
         <p className="text-sm text-ink-500">Loading...</p>
       </main>
     );
@@ -31,10 +31,10 @@ export default function EditQuestionPage({
 
   if (question === null) {
     return (
-      <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
+      <main className="flex-1 max-w-[680px] mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
         <PageHeader
           title="Not Found"
-          back={{ href: "/", label: "All Questions" }}
+          back={{ href: "/leetcode", label: "All Questions" }}
           subtitle="That question does not exist or was deleted."
         />
       </main>
@@ -42,14 +42,14 @@ export default function EditQuestionPage({
   }
 
   return (
-    <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
+    <main className="flex-1 max-w-[680px] mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
       <PageHeader
         title="Edit Question"
-        back={{ href: `/q/${id}`, label: question.title }}
+        back={{ href: `/leetcode/q/${id}`, label: question.title }}
       />
       <QuestionForm
         submitLabel="Save Changes"
-        cancelHref={`/q/${id}`}
+        cancelHref={`/leetcode/q/${id}`}
         initial={{
           title: question.title,
           difficulty: question.difficulty as Difficulty,
@@ -58,11 +58,11 @@ export default function EditQuestionPage({
         }}
         onSubmit={async (values) => {
           await update({ id: typedId, ...values });
-          router.push(`/q/${id}`);
+          router.push(`/leetcode/q/${id}`);
         }}
         onDelete={async () => {
           await remove({ id: typedId });
-          router.push("/");
+          router.push("/leetcode");
         }}
       />
     </main>
