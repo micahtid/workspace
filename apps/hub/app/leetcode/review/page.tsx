@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { SkipForward } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
@@ -70,6 +71,14 @@ export default function ReviewPage() {
     } finally {
       setPending(false);
     }
+  }
+
+  // Send the current card to the bottom of the stack without rating it.
+  function skip() {
+    if (!current || pending) return;
+    setQueue((q) => (q ? [...q, current] : q));
+    setIndex((i) => i + 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function restart() {
@@ -155,22 +164,17 @@ export default function ReviewPage() {
       />
 
       <article>
-        <div className="flex items-center gap-3 flex-wrap mb-3">
+        <div className="flex items-center gap-3 flex-wrap mb-6">
           <h2 className="text-xl sm:text-2xl font-medium tracking-tight">
             {current.title}
           </h2>
           <DifficultyChip value={current.difficulty} />
+          {tags.map((t) => (
+            <span key={t} className="chip">
+              {t}
+            </span>
+          ))}
         </div>
-
-        {tags.length > 0 ? (
-          <div className="flex flex-wrap gap-2 mb-6">
-            {tags.map((t) => (
-              <span key={t} className="chip">
-                {t}
-              </span>
-            ))}
-          </div>
-        ) : null}
 
         {current.body.trim() ? (
           <Markdown source={current.body} />
@@ -212,6 +216,17 @@ export default function ReviewPage() {
             />
           </div>
         ) : null}
+        <div className="mt-3 flex justify-center">
+          <button
+            type="button"
+            onClick={skip}
+            disabled={pending}
+            className="btn btn-ghost disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <SkipForward size={14} strokeWidth={2} />
+            <span>Skip — move to the end</span>
+          </button>
+        </div>
       </div>
     </main>
   );

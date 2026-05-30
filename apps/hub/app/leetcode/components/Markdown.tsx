@@ -2,107 +2,87 @@
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import python from "react-syntax-highlighter/dist/esm/languages/prism/python";
+import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+// Notes are Python-only, so register just Python and default unlabeled
+// fences to it. Keeps the bundle small vs. importing all of Prism.
+SyntaxHighlighter.registerLanguage("python", python);
+
+const components = {
+  h1: (props: React.ComponentProps<"h1">) => (
+    <h1 className="text-xl font-semibold mt-6 mb-3" {...props} />
+  ),
+  h2: (props: React.ComponentProps<"h2">) => (
+    <h2 className="text-lg font-semibold mt-6 mb-3" {...props} />
+  ),
+  h3: (props: React.ComponentProps<"h3">) => (
+    <h3 className="text-base font-semibold mt-5 mb-2" {...props} />
+  ),
+  p: (props: React.ComponentProps<"p">) => (
+    <p className="my-3 leading-relaxed" {...props} />
+  ),
+  ul: (props: React.ComponentProps<"ul">) => (
+    <ul className="my-3 ml-5 list-disc space-y-1" {...props} />
+  ),
+  ol: (props: React.ComponentProps<"ol">) => (
+    <ol className="my-3 ml-5 list-decimal space-y-1" {...props} />
+  ),
+  li: (props: React.ComponentProps<"li">) => (
+    <li className="leading-relaxed" {...props} />
+  ),
+  code: ({
+    className,
+    children,
+    ...props
+  }: React.ComponentProps<"code">) => {
+    const text = String(children ?? "");
+    const isBlock = /language-/.test(className ?? "") || text.includes("\n");
+    if (isBlock) {
+      const match = /language-(\w+)/.exec(className ?? "");
+      const language = match?.[1] ?? "python";
+      return (
+        <div className="bg-ink-50 rounded-xl overflow-x-auto">
+          <SyntaxHighlighter
+            language={language}
+            style={oneLight}
+            PreTag="div"
+            customStyle={{
+              margin: 0,
+              padding: "1rem",
+              background: "transparent",
+              fontSize: "13px",
+              lineHeight: "1.6",
+            }}
+            codeTagProps={{
+              style: {
+                fontFamily: "var(--font-mono)",
+                background: "transparent",
+              },
+            }}
+          >
+            {text.replace(/\n$/, "")}
+          </SyntaxHighlighter>
+        </div>
+      );
+    }
+    return (
+      <code
+        className="bg-ink-100 rounded px-1.5 py-0.5 text-[13px] font-mono"
+        {...props}
+      />
+    );
+  },
+  pre: (props: React.ComponentProps<"pre">) => (
+    <div className="my-4">{props.children}</div>
+  ),
+};
 
 export function Markdown({ source }: { source: string }) {
   return (
-    <div className="markdown-body text-[14px] leading-relaxed text-ink-900">
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        components={{
-          h1: ({ children }) => (
-            <h1 className="text-2xl font-medium tracking-tight mt-6 mb-3">
-              {children}
-            </h1>
-          ),
-          h2: ({ children }) => (
-            <h2 className="text-lg font-medium tracking-tight mt-6 mb-3">
-              {children}
-            </h2>
-          ),
-          h3: ({ children }) => (
-            <h3 className="text-sm font-medium text-ink-700 mt-5 mb-2">
-              {children}
-            </h3>
-          ),
-          p: ({ children }) => (
-            <p className="mb-4 last:mb-0">{children}</p>
-          ),
-          ul: ({ children }) => (
-            <ul className="list-disc pl-6 mb-4 space-y-1 marker:text-ink-400">
-              {children}
-            </ul>
-          ),
-          ol: ({ children }) => (
-            <ol className="list-decimal pl-6 mb-4 space-y-1 marker:text-ink-400">
-              {children}
-            </ol>
-          ),
-          li: ({ children }) => <li className="pl-1">{children}</li>,
-          a: ({ children, href }) => (
-            <a
-              href={href}
-              className="underline underline-offset-2 decoration-ink-400 hover:decoration-ink-900"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {children}
-            </a>
-          ),
-          blockquote: ({ children }) => (
-            <blockquote className="border-l-2 border-ink-300 pl-4 text-ink-600 mb-4">
-              {children}
-            </blockquote>
-          ),
-          hr: () => <hr className="my-6 border-ink-200" />,
-          strong: ({ children }) => (
-            <strong className="font-medium text-ink-900">{children}</strong>
-          ),
-          em: ({ children }) => <em className="italic">{children}</em>,
-          code: ({ className, children, ...props }) => {
-            const isBlock = (className ?? "").startsWith("language-");
-            if (isBlock) {
-              return (
-                <code
-                  className="block font-mono text-[13px] leading-relaxed text-ink-900"
-                  {...props}
-                >
-                  {children}
-                </code>
-              );
-            }
-            return (
-              <code
-                className="bg-ink-100 rounded-md px-1.5 py-0.5 font-mono text-[13px] text-ink-900"
-                {...props}
-              >
-                {children}
-              </code>
-            );
-          },
-          pre: ({ children }) => (
-            <pre className="bg-ink-100 border border-ink-200 rounded-xl p-4 overflow-x-auto mb-4">
-              {children}
-            </pre>
-          ),
-          table: ({ children }) => (
-            <div className="overflow-x-auto mb-4">
-              <table className="w-full text-sm border-collapse">
-                {children}
-              </table>
-            </div>
-          ),
-          th: ({ children }) => (
-            <th className="text-left font-medium text-ink-700 border-b border-ink-200 py-2 px-3">
-              {children}
-            </th>
-          ),
-          td: ({ children }) => (
-            <td className="border-b border-ink-100 py-2 px-3">{children}</td>
-          ),
-        }}
-      >
-        {source}
-      </ReactMarkdown>
-    </div>
+    <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+      {source}
+    </ReactMarkdown>
   );
 }
