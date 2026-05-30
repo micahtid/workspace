@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { SkipForward } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
@@ -89,7 +88,7 @@ export default function ReviewPage() {
 
   if (queue === undefined) {
     return (
-      <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
+      <main className="flex-1 max-w-[680px] mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
         <PageHeader
           title="Review"
           back={{ href: "/leetcode", label: "All Questions" }}
@@ -101,7 +100,7 @@ export default function ReviewPage() {
 
   if (queue.length === 0) {
     return (
-      <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
+      <main className="flex-1 max-w-[680px] mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
         <PageHeader
           title="Review"
           back={{ href: "/leetcode", label: "All Questions" }}
@@ -124,7 +123,7 @@ export default function ReviewPage() {
 
   if (!current) {
     return (
-      <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
+      <main className="flex-1 max-w-[680px] mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
         <PageHeader
           title="Review Complete"
           back={{ href: "/leetcode", label: "All Questions" }}
@@ -156,7 +155,7 @@ export default function ReviewPage() {
   }`;
 
   return (
-    <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
+    <main className="flex-1 max-w-[680px] mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
       <PageHeader
         title="Review"
         back={{ href: "/leetcode", label: "All Questions" }}
@@ -216,15 +215,14 @@ export default function ReviewPage() {
             />
           </div>
         ) : null}
-        <div className="mt-3 flex justify-center">
+        <div className="mt-3">
           <button
             type="button"
             onClick={skip}
             disabled={pending}
             className="btn btn-ghost disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <SkipForward size={14} strokeWidth={2} />
-            <span>Skip — move to the end</span>
+            Skip
           </button>
         </div>
       </div>

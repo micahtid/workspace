@@ -22,7 +22,7 @@ export default function QuestionViewPage({
 
   if (question === undefined) {
     return (
-      <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
+      <main className="flex-1 max-w-[680px] mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
         <p className="text-sm text-ink-500">Loading...</p>
       </main>
     );
@@ -30,7 +30,7 @@ export default function QuestionViewPage({
 
   if (question === null) {
     return (
-      <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
+      <main className="flex-1 max-w-[680px] mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
         <PageHeader
           title="Not Found"
           back={{ href: "/leetcode", label: "All Questions" }}
@@ -43,7 +43,7 @@ export default function QuestionViewPage({
   const tags = question.tags ?? [];
 
   return (
-    <main className="flex-1 max-w-3xl mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
+    <main className="flex-1 max-w-[680px] mx-auto w-full px-5 sm:px-6 py-10 sm:py-12">
       <PageHeader
         title={question.title}
         back={{ href: "/leetcode", label: "All Questions" }}
