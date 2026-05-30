@@ -74,4 +74,13 @@ export default defineSchema({
     .index("by_date", ["date"])
     .index("by_workout_date", ["workoutId", "date"])
     .index("by_workout", ["workoutId"]),
+
+  // "Space" — a single plain-text canvas. Each row is one text placed at
+  // (x, y) canvas-pixel coordinates, sized by fontSize (px). No formatting.
+  spaceTexts: defineTable({
+    x: v.number(),
+    y: v.number(),
+    text: v.string(),
+    fontSize: v.number(),
+  }),
 });
